@@ -3,7 +3,7 @@ Resource    ../main.robot
 
 *** Keywords ***
 Acessar site
-    Open Browser  ${geral.URL}  ${geral.Browser}
+    Open Browser  ${geral.URL}  ${geral.Browser}  options=${geral.Headless}
     Maximize Browser Window
 
 Preencher
@@ -36,9 +36,9 @@ Validar mensagens
     Element Should Contain    ${msgErro}     ${alerta2} 
 
 Fechar navegador
+    Screenshot
     Close Browser
 
 Screenshot
-    [Arguments]        ${name_print}
-    Set Screenshot Directory    ./screenshots/suites
-    Capture Page Screenshot   ${name_print}
+    Capture Page Screenshot          ${OUTPUT_DIR}/screenshot.png
+    Attach File                      ${OUTPUT_DIR}/screenshot.png

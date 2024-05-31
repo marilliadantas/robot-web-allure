@@ -34,13 +34,17 @@ jobs:
           sudo mv allure-2.13.8 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
+      - name: Clean output allure
+        run: |
+          rm -rf output/
+
       - name: Run Test
         run: |
-          robot -d logs --listener allure_robotframework tests/ || true
+          robot -d logs --listener "allure_robotframework;output/allure-results" tests/ || true
 
       - name: Generate report
         run: |
-          allure generate output/allure -o allure-report --clean
+          allure generate output/allure-results -o allure-report --clean
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v3
@@ -70,11 +74,6 @@ jobs:
         with: 
           name: allure-report
           path: allure-report/
-
-      - name: Verify Allure Report
-        run: |
-          ls -la allure-report
-          cat allure-report/index.html
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1

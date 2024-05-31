@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    AllureLibrary
 
 #Data
 Resource   data/geral.robot
