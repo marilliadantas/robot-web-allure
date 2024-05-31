@@ -3,7 +3,7 @@ Resource    ../main.robot
 
 *** Keywords ***
 Acessar site
-    Open Browser  ${geral.URL}  ${geral.Browser}  options=${geral.Headless}
+    Open Browser  ${URL}  ${HeadLess}
     Maximize Browser Window
 
 Preencher
