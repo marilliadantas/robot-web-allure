@@ -23,8 +23,7 @@ Este projeto tem como objetivo realizar testes de FrontEnd em uma aplicação we
 Você pode instalar o Robot Framework e as bibliotecas necessárias executando os seguintes comandos no terminal ou prompt de comando:
 
 ```bash
-pip install robotframework
-pip install robotframework-seleniumlibrary
+pip install -r requirements.txt
 ```
 
 ## Executando os Testes
